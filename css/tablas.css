@@ -1,0 +1,96 @@
+/* ------------------
+ styling for the tables 
+   ------------------   */
+
+#ver-zebra
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	
+	width: 100%;
+	text-align: left;
+	border-collapse: collapse;
+}
+#ver-zebra th
+{
+	font-size: 14px;
+	font-weight: normal;
+	padding: 12px 15px;
+	border-right: 3px solid #fff;
+	border-left: 3px solid #fff;
+	color: #039;
+}
+#ver-zebra td
+{
+	padding: 8px 15px;
+	border-right: 3px solid #fff;
+	border-left: 3px solid #fff;
+	
+	
+}
+#ver-zebra td span
+{
+	clear: both;
+	float: left;
+	width:100%;
+	color: #F27F02;
+	border-bottom:1px solid #fff;
+	
+}
+#ver-zebra td .listado
+{
+	padding:4px 0 8px 4px;	
+	
+
+		clear: both;
+	float: left;
+	overflow:hidden;
+}
+.cabecera-uno
+{
+	background: #e8edff;
+}
+.cabecera-dos
+{
+	background: #e8edff;
+}
+#ver-zebra #dos
+{
+	background: #d0dafd;
+	border-bottom: 1px solid #c8d4fd;
+}
+#ver-zebra #uno, #tres
+{
+	background: #dce4ff;
+	border-bottom: 1px solid #d6dfff;
+}
+
+
+
+
+#hor-zebra
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	
+	width: 100%;
+	text-align: left;
+	border-collapse: collapse;
+}
+#hor-zebra th
+{
+	font-size: 14px;
+	font-weight: normal;
+	padding: 10px 8px;
+	color: #F27F02;
+}
+#hor-zebra td
+{
+	padding: 8px;
+	color: #669;
+}
+#hor-zebra .odd
+{
+	background: #e8edff; 
+}
+
