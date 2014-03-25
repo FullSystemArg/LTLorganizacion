@@ -86,7 +86,7 @@
       <nav>
         <ul>
         <li><a href="index.php" class="current">Home</a></li>
-          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="servicios.htm">Servicios</a></li>
           <li><a href="contacto.php">Contacto</a></li>
           <li><a href="congreso-micologia.php">Congreso</a></li>
         </ul>

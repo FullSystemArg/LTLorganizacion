@@ -95,7 +95,7 @@ if(isset($_GET["err"])){
       <nav>
         <ul>
         	<li><a href="index.php">Home</a></li>
-          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="servicios.htm">Servicios</a></li>
           <li><a href="contacto.php">Contacto</a></li>
            <li><a href="congreso-micologia.php" class="current">Congreso</a></li>
          

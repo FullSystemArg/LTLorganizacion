@@ -122,7 +122,7 @@ document.nuevo.submit();
       <nav>
         <ul>
         	<li><a href="index.php">Home</a></li>
-          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="servicios.htm">Servicios</a></li>
           <li><a href="contacto.php" class="current">Contacto</a></li>
           <li><a href="congreso-micologia.php">Congreso</a></li>
         </ul>

@@ -1,52 +1,4 @@
-<?php
-require_once("back/class/customer.class.php");
-require_once("back/class/functions.class.php");
 
-$session = $obj->f_checkSession();
-if($session) header("location:inscriptos.php");
-
-if(isset($_POST["email"])){
-  $email     = utf8_decode($_POST["email"]);
-  $password  = utf8_decode($_POST["password"]);
-
-  $exists = $obj->f_checkExistsUser($email);
-
-  if($exists == 1){
-    $checkPass  = $obj->f_checkLogin($email, $password);
-    if($checkPass == 1){
-      $row        = $obj->f_darCustomerRowByEmailSQL($email);
-      $id         = $row['id'];
-      $first_name = $row['first_name'];
-      $last_name  = $row['last_name'];
-      $password   = $row['password'];
-      $obj->f_generateSession($id, $first_name, $last_name, $email);
-      header("location:inscriptos.php");    
-    }else{ header("location:congreso-micologia.php?err=1");}
-  }else{ header("location:congreso-micologia.php?err=1");}
-}
-
-if(isset($_GET["err"])){
-  if($_GET["err"] == 1){
-    $msg  = "<div class='error'>
-              Error al intentar ingresar al panel de Usuarios Registrados.<br>
-
-              Por favor ingrese correctamente sus datos y vuelva a intentarlo.
-              
-            </div>";
-  }
-}
-
-if(isset($_GET["v"])){
-  if($_GET["v"] == 1){
-    $msg  = "<div class='success'>
-              Ya ha validado su usuario, ahora puedes acceder al panel ingresando 
-              sus datos de Email y Contrase&ntilde;a.<br />
-              Muchas Gracias.
-            </div>";
-  }
-}
-
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -90,7 +42,7 @@ if(isset($_GET["v"])){
       <nav>
         <ul>
         	<li><a href="index.php">Home</a></li>
-          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="servicios.htm">Servicios</a></li>
           <li><a href="contacto.php">Contacto</a></li>
            <li><a href="congreso-micologia.php" class="current">Congreso</a></li>
          
@@ -101,70 +53,13 @@ if(isset($_GET["v"])){
  
 
   <div class="main-box">
-    <div class="container">
+    <div class="container" style="200px">
       <div class="inside">
         <div class="wrapper">
         	<!-- aside -->
             <aside>
            <?php include("congreso.php");?>
           </aside>
-          <!-- content -->
-          <section id="content">
-            <article>
-            	<h2>Ingreso/Inscripción <span>al Congreso.</span></h2>
-              
-              
-              <?php if(isset($msg)) echo $msg; ?>
-              
-              
-             <div class="registrados">
-             	<div class="registrados-titulo">Ingreso Usuarios Registrados</div>
-             
-             <form id="contacts-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-             	
-                	<div class="field2">
-                    <label>Email:</label>
-                    <input type="email" value="" name="email" id="email" required/>
-                  </div>
-                  
-                  <div class="field2">
-                    <label>Contraseña:</label>
-                    <input type="password" value="" name="password" id="password" required/>
-                  </div>
-                
-                  <input type="submit" value="Ingresar" class="submit bt2"/>
-                
-             </form>
-			<br>
-<a href="recordar.php">¿Olvidó su Contraseña? Click aquí</a>
-             </div><!-- fin resgistrados -->
-             
-             
-             <div class="separador"><img src="images/separador.jpg" width="4" height="192"></div>
-             
-             <div class="registrarse">
-             	<div class="registrarse-titulo">Inscripción al Congreso</div>
-                <p>Si no tiene contraseña para iniciar su sesión, debe inscribirse para obtenerla. Esta inscripción se hace por única vez.
-               
-<a href="inscripcion-congreso-micologia.php" class="bt">Inscribirse</a></p></div><!-- fin resgistrarse -->
-                
-<div class="clear"></div>
-<p>
-<figure><img src="images/logo-congreso-micologia.jpg" width="222" height="85"></figure>
-XIII Congreso Argentino de Micología<br>
-XXIII Jornadas Argentinas de Micología<br>
-1ra Reunión de la Asociación Micológica Carlos Spegazzini<br><br>
-
-Lugar: Círculo  Oficiales de Mar | Sarmiento 1867. C.A.B.A.<br>
-Fecha: 24 a 27 de Agosto de 2014
-              </p>
-            
-            </article> 
-          </section>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
 <!-- content -->
@@ -203,6 +98,11 @@ XIII Congreso Argentino AsAM</span>
 		</div>
 	</article> 
 </section>
+</div>
+		</div>
+		</div>
+		</div>
+
 
 
   <!-- footer -->

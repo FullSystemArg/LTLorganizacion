@@ -1,3 +1,53 @@
+<?php
+require_once("back/class/customer.class.php");
+require_once("back/class/functions.class.php");
+
+$session = $obj->f_checkSession();
+if($session) header("location:inscriptos.php");
+
+if(isset($_POST["email"])){
+	$email     = utf8_decode($_POST["email"]);
+	$password  = utf8_decode($_POST["password"]);
+
+	$exists = $obj->f_checkExistsUser($email);
+
+	if($exists == 1){
+		$checkPass  = $obj->f_checkLogin($email, $password);
+		if($checkPass == 1){
+			$row        = $obj->f_darCustomerRowByEmailSQL($email);
+			$id         = $row['id'];
+			$first_name = $row['first_name'];
+			$last_name  = $row['last_name'];
+			$password   = $row['password'];
+			$obj->f_generateSession($id, $first_name, $last_name, $email);
+			header("location:inscriptos.php");    
+		}else{ header("location:congreso-micologia.php?err=1");}
+	}else{ header("location:congreso-micologia.php?err=1");}
+}
+
+if(isset($_GET["err"])){
+	if($_GET["err"] == 1){
+		$msg  = "<div class='error'>
+              Error al intentar ingresar al panel de Usuarios Registrados.<br>
+
+              Por favor ingrese correctamente sus datos y vuelva a intentarlo.
+              
+            </div>";
+	}
+}
+
+if(isset($_GET["v"])){
+	if($_GET["v"] == 1){
+		$msg  = "<div class='success'>
+              Ya ha validado su usuario, ahora puedes acceder al panel ingresando 
+              sus datos de Email y Contrase&ntilde;a.<br />
+              Muchas Gracias.
+            </div>";
+	}
+}
+
+?>
+
 <script type="text/javascript">
 <!--
 function MM_swapImgRestore() { //v3.0
@@ -24,10 +74,37 @@ function MM_swapImage() { //v3.0
 //-->
 </script>
 <body onLoad="MM_preloadImages('images/bt-autoridades2.jpg','images/bt-trabajos2.jpg','images/bt-aranceles2.jpg')">
-            <h2>XIII Congreso Argentino de Micología </h2>
-           <div align="center">
-            <a href="autoridades-congreso-micologia.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image5','','images/bt-autoridades2.jpg',1)"><img src="images/bt-autoridades1.jpg" name="Image5" width="236" height="98" border="0"></a><br>
-            <a href="programa-cientifico-congreso-micologia.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image6','','images/bt-programa2.jpg',1)"><img src="images/bt-programa1.jpg" name="Image6" width="236" height="97" border="0"></a><br>
-            <a href="trabajos-cientificos-congreso-micologia.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image7','','images/bt-trabajos2.jpg',1)"><img src="images/bt-trabajos1.jpg" name="Image7" width="236" height="97" border="0"></a><br>
-            <a href="aranceles-congreso-micologia.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image8','','images/bt-aranceles2.jpg',1)"><img src="images/bt-aranceles1.jpg" name="Image8" width="236" height="97" border="0"></a></div>
-
+	<h2>XIII Congreso Argentino de Micología </h2>
+              
+			<?php if(isset($msg)) echo $msg; ?>
+              
+             <div>
+             	<div class="registrados-titulo">Ingreso Usuarios Registrados</div>
+             
+             <form id="contacts-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+             	
+                	<div class="field2">
+                    <label>Email:</label>
+                    <input type="email" value="" name="email" id="email" required/>
+                  </div>
+                  
+                  <div class="field2">
+                    <label>Contraseña:</label>
+                    <input type="password" value="" name="password" id="password" required/>
+                  </div>
+                
+                  <input type="submit" value="Ingresar" class="submit bt2"/>
+                
+             </form>
+			<br>
+<a href="recordar.php">¿Olvidó su Contraseña? Click aquí</a>
+             </div><!-- fin resgistrados -->
+	<br>
+	<div align="center">
+		<a href="autoridades-congreso-micologia.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image5','','images/bt-autoridades2.jpg',1)"><img src="images/bt-autoridades1.jpg" name="Image5" width="236" height="98" border="0"></a><br>
+		<a href="xx.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image9','','images/bt-cursos2.jpg',1)"><img src="images/bt-cursos1.jpg" name="Image9" width="236" height="98" border="0"></a><br>
+		<a href="programa-cientifico-congreso-micologia.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image6','','images/bt-programa2.jpg',1)"><img src="images/bt-programa1.jpg" name="Image6" width="236" height="97" border="0"></a><br>
+		<a href="trabajos-cientificos-congreso-micologia.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image7','','images/bt-trabajos2.jpg',1)"><img src="images/bt-trabajos1.jpg" name="Image7" width="236" height="97" border="0"></a><br>
+		<a href="aranceles-congreso-micologia.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image8','','images/bt-aranceles2.jpg',1)"><img src="images/bt-aranceles1.jpg" name="Image8" width="236" height="97" border="0"></a><br>
+		<a href="inscripcion-congreso-micologia.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image10','','images/bt-inscripcion2.jpg',1)"><img src="images/bt-inscripcion1.jpg" name="Image10" width="236" height="97" border="0"></a>
+	</div>
