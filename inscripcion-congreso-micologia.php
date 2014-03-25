@@ -54,7 +54,7 @@ if(isset($_POST["first_name"])){
 
 if(isset($_GET["err"])){
   if($_GET["err"] == 0){
-    $msg  = "<div class='success'>
+	$msg  = "<div style='color:#333;font-family:Helvetica,Verdana,Arial'>
               Se ha inscripto de manera exitosa.<br /> 
               En instantes recibir&aacute; un email
               de confirmaci&oacute;n para que pueda validar sus datos y as&iacute; poder acceder al panel de Usuario Registrados
@@ -70,6 +70,17 @@ if(isset($_GET["err"])){
             </div>";
   }
 }
+
+if(isset($_GET["v"])){
+	if($_GET["v"] == 1){
+		$msg  = "<div class='success'>
+              Ya ha validado su usuario, ahora puedes acceder al panel ingresando 
+              sus datos de Email y Contrase&ntilde;a.<br />
+              Muchas Gracias.
+            </div>";
+	}
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">

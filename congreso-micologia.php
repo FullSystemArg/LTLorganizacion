@@ -1,3 +1,52 @@
+<?php
+require_once("back/class/customer.class.php");
+require_once("back/class/functions.class.php");
+
+$session = $obj->f_checkSession();
+if($session) header("location:inscriptos.php");
+
+if(isset($_POST["email"])){
+	$email     = utf8_decode($_POST["email"]);
+	$password  = utf8_decode($_POST["password"]);
+
+	$exists = $obj->f_checkExistsUser($email);
+
+	if($exists == 1){
+		$checkPass  = $obj->f_checkLogin($email, $password);
+		if($checkPass == 1){
+			$row        = $obj->f_darCustomerRowByEmailSQL($email);
+			$id         = $row['id'];
+			$first_name = $row['first_name'];
+			$last_name  = $row['last_name'];
+			$password   = $row['password'];
+			$obj->f_generateSession($id, $first_name, $last_name, $email);
+			header("location:inscriptos.php");    
+		}else{ header("location:congreso-micologia.php?err=1");}
+	}else{ header("location:congreso-micologia.php?err=1");}
+}
+
+if(isset($_GET["err"])){
+	if($_GET["err"] == 1){
+		$msg  = "<div class='error'>
+              Error al intentar ingresar al panel de Usuarios Registrados.<br>
+
+              Por favor ingrese correctamente sus datos y vuelva a intentarlo.
+              
+            </div>";
+	}
+}
+
+if(isset($_GET["v"])){
+	if($_GET["v"] == 1){
+		$msg  = "<div class='success'>
+              Ya ha validado su usuario, ahora puedes acceder al panel ingresando 
+              sus datos de Email y Contrase&ntilde;a.<br />
+              Muchas Gracias.
+            </div>";
+	}
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -65,7 +114,7 @@
 <!-- content -->
 <section id="content">
  <article>
-       <h2>Bienvenidos.</h2>
+       <h2>LTL Organización.</h2>
 <div class="castellano">
               <p>En nombre del Comité Organizador del XIII Congreso Argentino de Micología y de la 1ra Reunión de la Asociación Micológica Carlos Spegazzini les damos cordialmente la bienvenida e invitamos a participar de este evento científico que constituye la reunión más importante de micólogos de Argentina. El mismo se llevará a cabo en los salones del Círculo Oficiales de Mar, ubicado en el macrocentro de la Ciudad de Buenos Aires, del 24 al 27 de Agosto de 2014.</p>
               
