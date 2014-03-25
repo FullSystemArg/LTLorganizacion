@@ -65,7 +65,7 @@
 <!-- content -->
 <section id="content">
  <article>
-       <h2>LTL Organización.</h2>
+       <h2>Bienvenidos.</h2>
 <div class="castellano">
               <p>En nombre del Comité Organizador del XIII Congreso Argentino de Micología y de la 1ra Reunión de la Asociación Micológica Carlos Spegazzini les damos cordialmente la bienvenida e invitamos a participar de este evento científico que constituye la reunión más importante de micólogos de Argentina. El mismo se llevará a cabo en los salones del Círculo Oficiales de Mar, ubicado en el macrocentro de la Ciudad de Buenos Aires, del 24 al 27 de Agosto de 2014.</p>
               

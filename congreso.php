@@ -102,9 +102,9 @@ function MM_swapImage() { //v3.0
 	<br>
 	<div align="center">
 		<a href="autoridades-congreso-micologia.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image5','','images/bt-autoridades2.jpg',1)"><img src="images/bt-autoridades1.jpg" name="Image5" width="236" height="98" border="0"></a><br>
-		<a href="xx.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image9','','images/bt-cursos2.jpg',1)"><img src="images/bt-cursos1.jpg" name="Image9" width="236" height="98" border="0"></a><br>
+		<a href="Cursos-Precongreso.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image9','','images/bt-cursos2.jpg',1)"><img src="images/bt-cursos1.jpg" name="Image9" width="236" height="98" border="0"></a><br>
 		<a href="programa-cientifico-congreso-micologia.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image6','','images/bt-programa2.jpg',1)"><img src="images/bt-programa1.jpg" name="Image6" width="236" height="97" border="0"></a><br>
 		<a href="trabajos-cientificos-congreso-micologia.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image7','','images/bt-trabajos2.jpg',1)"><img src="images/bt-trabajos1.jpg" name="Image7" width="236" height="97" border="0"></a><br>
-		<a href="aranceles-congreso-micologia.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image8','','images/bt-aranceles2.jpg',1)"><img src="images/bt-aranceles1.jpg" name="Image8" width="236" height="97" border="0"></a><br>
+		<a href="aranceles-congreso-micologia.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image8','','images/bt-aranceles2.jpg',1)"><img src="images/bt-aranceles1.jpg" name="Image8" width="236" height="97" border="0"></a><br>
 		<a href="inscripcion-congreso-micologia.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image10','','images/bt-inscripcion2.jpg',1)"><img src="images/bt-inscripcion1.jpg" name="Image10" width="236" height="97" border="0"></a>
 	</div>
