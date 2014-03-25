@@ -204,12 +204,12 @@ if(isset($_GET["err"])){
             <article>
     <h2>Inscripción. <span>Congreso Argentino de Micología</span></h2>
     <ul class="tabrow">
-		<li><a href="autoridades-congreso-micologia.htm">
-	    <li><a href="Cursos-Precongreso.htm">Cursos Pre-Congreso</a></li>
-	    <li><a href="programa-cientifico-congreso-micologia.html">Programa</a></li>
-	    <li><a href="trabajos-cientificos-congreso-micologia.html">Trabajos Científicos</a></li>
-	    <li><a href="aranceles-congreso-micologia.html">Aranceles</a></li>
-	    <li class="selected">Inscripción</li>
+		<li style="font-size:xx-small"><a href="autoridades-congreso-micologia.htm">
+	    <li style="font-size:xx-small"><a href="Cursos-Precongreso.htm">Cursos</a></li>
+	    <li style="font-size:xx-small"><a href="programa-cientifico-congreso-micologia.html">Programa</a></li>
+	    <li style="font-size:xx-small"><a href="trabajos-cientificos-congreso-micologia.html">Trabajos Científicos</a></li>
+	    <li style="font-size:xx-small"><a href="aranceles-congreso-micologia.html">Aranceles</a></li>
+	    <li style="font-size:xx-small" class="selected">Inscripción</li>
 	</ul>
               <?php if(isset($msg)) echo $msg; ?> 
               <?php if(!isset($_GET["err"]) || $_GET["err"] != 0): ?>
